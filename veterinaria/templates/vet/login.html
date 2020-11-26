@@ -1,0 +1,73 @@
+{% extends 'vet/base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block css %}
+<style>
+    #img-login{ 
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+    }
+    #contenedor-login label{
+        position: absolute;
+        color: whitesmoke;
+        font-size: large;
+        font-family:sans-serif;
+    }
+    #contenedor-login .input-field input{
+        border-bottom: 1px solid orange;
+        margin-top: 30px;
+    }
+    #contenedor-login .btn{
+        background: purple;
+        display: block;
+        margin: auto;
+    }
+    #contenedor-login{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    #contenedor-login form{
+        margin-top: 60px;
+        border-radius: 2%;
+        background: rgb(0,0,0,0.5);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        height: 480px;
+    }
+    #contenedor-login form p{
+        margin: 0;
+        color: white;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<img id="img-login" src="/static/imagenes/img-login.png">
+<div id="contenedor-login" class="container">
+    <div class="row">
+        <form method="POST" class="col s6">
+            {% csrf_token %}
+            <div class="row">
+                <div style="margin-top: 30px;" class="input-field col s12">
+                    <label for="rut">Rut (sin puntos): </label>
+                    <input type="text" name="rut" id="idRut">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label for="contraseña">Contraseña: </label>
+                    <input type="password" name="contraseña" id="idContraseña">
+                </div>
+            </div>
+            <input style="width: 200px; margin-top: 50px;" class="btn wave-effect" type="submit" name="boton" id="idBoton" value="Ingresar">
+            <p class="center">Todavia no tienes cuenta? Registrate <a href="registro">Aquì</a></p>
+        </form>
+    </div>
+</div>
+{% endblock %}

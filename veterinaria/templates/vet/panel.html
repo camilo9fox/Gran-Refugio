@@ -1,0 +1,35 @@
+{% extends 'vet/base.html' %}
+
+{% block title %} Panel de usuario {% endblock %}
+
+{% block css %}
+<style>
+    #panel .row label{
+        color: orange;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+{% block js %}
+{% endblock %}
+
+{% block content %}
+<div id="panel" class="container">
+    <div class="row">
+        <div class="col s12">
+            <h1>Informacion de usuario</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <p>Nombre: <label>{{usuario.nombre}}</label></p>
+            <p>Apellido: <label>{{usuario.apellido}}</label></p>
+            <p>Rut: <label>{{usuario.rut}}</label></p>
+            <p>Estado: <label>{{usuario.estado}}</label></p>
+            <p>Reservas agendadas: <label>{{reservas}}</label></p>
+            <p>Proxima visita programada: <label>{{visita}}</label></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

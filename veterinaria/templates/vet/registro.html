@@ -1,0 +1,84 @@
+{% extends "vet/base.html" %}
+
+{% block title %} Registro {% endblock %}
+
+{% block css %}
+<style>
+    #img-registro{
+        position: absolute;
+        height: 150vh;
+        width: 100%;
+    }
+    #contenedor-registro{
+        z-index: 2;
+        position: relative;
+        height: 140vh;
+    }
+    #contenedor-registro form{
+        background: rgb(0,0,0,0.1);
+        height: 118vh;
+    }
+    #contenedor-registro .input-field label{
+        color: white;
+        position: relative;
+    }
+    #contenedor-registro .btn{
+        width: 200px;
+        background: purple;
+    }
+    #contenedor-registro form input{
+        color: orange;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<img id="img-registro" src="/static/imagenes/img-registro.jpg">
+<div id="contenedor-registro" class="container">
+    <h1 style="color: orange;" class="center">Registro de usuario</h1>
+    <div class="row">
+        <form method="POST" class="col s12 center">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s6">
+                    <label>Nombre completo(*)</label>
+                    {{form.nombre}}
+                </div>
+                <div class="input-field col s6">
+                    <label>Apellido(*)</label>
+                    {{form.apellido}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label>Rut (sin puntos) (*)</label>
+                    {{form.rut}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label>Correo electronico(*)</label>
+                    {{form.email}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <label>Contraseña(*)</label>
+                    {{form.password1}}
+                </div>
+                <div class="input-field col s6">
+                    <label>Confirma  contraseña(*)</label>
+                    {{form.password2}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label>Codigo de usuario administrador (opcional)</label>
+                    <input type="text" name="txtCodigo" id="idCodigo">
+                </div>
+            </div>
+            <input class="btn wave-effect" type="submit" name="boton" id="idBoton" value="Registrarse">
+        </form>
+    </div>
+</div>
+{% endblock %}

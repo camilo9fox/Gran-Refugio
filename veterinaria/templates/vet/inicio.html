@@ -1,0 +1,264 @@
+{% extends 'vet/base.html' %}
+
+{% load static %}
+
+{% block title %} Inicio {% endblock %}
+
+{% block css %} 
+<style>
+    /*PORTADA*/
+    .slider{
+        height: 80vh !important;
+    }
+    .slides{
+        height: 75vh !important;
+    }
+    .slider img{
+        height: 75vh !important;
+    }
+    /*FIN PORTADA*/
+
+    /*SERVICIOS*/
+    #servicios .row:nth-child(1) h2{
+        color: orange;
+    }
+    #servicios{
+        width: 100%;
+    }
+    #servicios .card{
+        margin-left: 10%;
+        margin-right: 10%;
+        height: 68vh;
+    }
+    #servicios .card img{
+        width: 100%;
+        height: 30vh;
+    }
+    #servicios .card-content{
+        text-align: justify;
+    }
+    /*FIN SERVICIOS*/
+
+    /*REFUGIO*/
+    #refugio{
+        width: 100%;
+    }
+    #refugio .row .col:nth-child(1) p{
+        text-align: justify;
+        width: 80%;
+    }
+    /*FIN REFUGIO*/
+</style>
+{% endblock %}
+
+{% block js %}  
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.slider').slider();
+    })
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="{% static 'imagenes/portada_img_1.jpg' %}">
+        <div class="caption center-align">
+          <h3>Cercanía</h3>
+          <h5 class="light grey-text text-lighten-3">Relacion estrecha con nuestros pacientes</h5>
+        </div>
+      </li>
+      <li>
+        <img src="{% static 'imagenes/portada_img_2.jpg' %}">
+        <div class="caption left-align">
+          <h3>Disponibilidad</h3>
+          <h5 class="light grey-text text-lighten-3">Puertas abiertas 24/7</h5>
+        </div>
+      </li>
+      <li>
+        <img src="{% static 'imagenes/portada_img_3.jpg' %}">
+        <div class="caption right-align">
+          <h3>Seguridad</h3>
+          <h5 class="light grey-text text-lighten-3">Profesionales comprometidos y capaces</h5>
+        </div>
+      </li>
+    </ul>
+</div>
+<div class="divider"></div><br><br> <!--division-->
+<div id="servicios" class="container">
+    <div class="row">
+        <div class="col s12 center">
+            <h2>Servicios que entregamos</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{% static 'imagenes/servicios/cirugia.jpg' %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Cirugia</span>
+                    <p> Tenemos un pabellón quirúrgico implementado
+                         con máquina de anestesia a gas, multiparámetro 
+                         que permita tener todas las constantes del paciente,
+                          ecografías, manejo y desinfección constante del
+                           pabellón quirúrgico.</p>
+                </div>
+            </div>  
+        </div>
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{% static 'imagenes/servicios/consulta.jpg' %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Consulta</span>
+                    <p>
+                        Contamos con dos salas de atención de consultas 
+                        para agilizar la atención de nuestros pacientes. 
+                        Cada una implementada con todo lo necesario para una 
+                        consulta expedita y eficiente.
+                    </p>
+                </div>
+            </div>  
+        </div>
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{% static 'imagenes/servicios/vacunas.jpg' %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Vacunas</span>
+                    <p>
+                        Todo paciente que se atiende en nuestra clínica 
+                        tiene un plan de vacunación personalizado, donde el 
+                        recordatorio y registro del mismo es nuestra responsabilidad 
+                        ¡No te preocupes por saber cuando le toca vacunarse a tu mascota! 
+                        Nosotros lo hacemos por ti. 
+                    </p>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{% static 'imagenes/servicios/imagenologia.jpg' %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Imagenología</span>
+                    <p>
+                        El diagnóstico por imagenología veterinaria 
+                        tiene importancia fundamental en el tratamiento 
+                        de pequeños animales, ayudando en la determinación 
+                        de diversas patologías, tratamientos y pronósticos.
+                    </p>
+                </div>
+            </div>  
+        </div>
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{% static 'imagenes/servicios/hospitalizacion.jpg' %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Hospitalización</span>
+                    <p>
+                        El Hospital funciona 24 hrs; siempre hay un Médico 
+                        Veterinario y una enfermera de turno, trabajando en los
+                         tratamientos, alimentación, mantención y aseo de los pacientes
+                          hospitalizados.
+                    </p>
+                </div>
+            </div>  
+        </div>
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{% static 'imagenes/servicios/fisioterapia.jpg' %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Fisioterapía</span>
+                    <p>
+                        Doctor Tomas Gonzalez maneja los procedimientos
+                         de Fisioterapia para las mascotas operadas o con 
+                         accidentes traumáticos con atropellos o accidentes 
+                         en general.
+                    </p>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{% static 'imagenes/servicios/farmacia.jpg' %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Farmacía</span>
+                    <p>
+                        Farmacia veterinaria con gran variedad de farmacos
+                         de uso veterinario (antibióticos, antiinflamatorios, 
+                         antiparasitarios, vitaminas, etc)
+                        Además contamos con una línea cosmetica para perros y gatos.
+                    </p>
+                </div>
+            </div>  
+        </div>
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{% static 'imagenes/servicios/peluqueria.jpg' %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Peluqueria</span>
+                    <p>
+                        En este servicio, además de realizar el baño higiénico 
+                        completo, incluye el corte de cabello o manto. Además, 
+                        realizamos cortes específicos de raza o según las indicaciones 
+                        realizadas por los dueños.
+                    </p>
+                </div>
+            </div>  
+        </div>
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{% static 'imagenes/servicios/laboratorio.jpg' %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Laboratorio</span>
+                    <p>
+                        Contamos con equipos de última tecnología para realización 
+                        de exámenes de urgencia, pre quirúrgicos y de todo tipo que nos
+                         permiten llegar a un diagnóstico definitivo de nuestros pacientes.
+                    </p>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>
+<div class="divider"></div><br><br><br><br><br><br>
+<div id="refugio" class="container">
+    <div class="row">
+        <div class="col s6">
+            <h2>Un refugio para tus mascotas</h2>
+            <p>En Veterinaria Gran Refugio encontraras un grupo
+                de excelentes profesionales totalmente comprometidos
+                y entregados a la labor de la salud animal, estan 
+                dispuestos a entregar todo de si para brindarle
+                el mejor servicio por mantener en optimas condiciones
+                la salud de los animales.
+            </p>
+        </div>
+        <div class="col s6">
+            <img src="{% static 'imagenes/grupo_vet.jpg' %}">
+        </div>
+    </div>
+</div><br><br><br><br><br>
+{% endblock %}
+

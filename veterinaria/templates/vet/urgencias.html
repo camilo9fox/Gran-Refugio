@@ -1,0 +1,105 @@
+{% extends 'vet/base.html' %}
+
+{% load static %}
+
+{% block title %} Urgencias {% endblock %}
+
+{% block css %}
+<style>
+    /*PORTADA*/
+    #portada{
+        width: 100%;
+        height: 70vh;
+    }
+    #portada img{
+        width: 100%;
+        height: 100%;
+    }
+    #portada h2{
+        position: absolute;
+        top: 450px;
+        right: 50px;
+        color: maroon;
+        font-family: Courier 'Courier New', Courier, monospace;
+        font-weight: bold;
+    }
+    /*FIN PORTADA*/
+
+    /*INFO URGENCIAS*/
+    #info_urgencias{
+        width: 100%;
+    }
+    #info_urgencias .row:nth-child(1) .col:nth-child(1){
+        background-color: maroon;
+        color: whitesmoke;
+        padding: 50px;
+        text-align: center;
+    } 
+    #info_urgencias .row:nth-child(1) .col:nth-child(1) h4{
+        margin-top: 0px;
+        margin-bottom: 20px;
+    } 
+    #info_urgencias .row:nth-child(2) .col:nth-child(1){
+        text-align: center;
+    } 
+    #info_urgencias .row:nth-child(2) .col:nth-child(1) hr{
+        width: 60vh;
+        height: 2px;
+        position: relative;
+        left: 0px;
+    } 
+    #info_urgencias .row:nth-child(2) .col:nth-child(1) h5{
+        text-align: justify;
+    } 
+    #info_urgencias .row:nth-child(2) .col:nth-child(2) img{
+        width: 90%;
+        height: 80%;
+    } 
+    /*FIN INFO URGENCIAS*/
+</style>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
+
+{% block content %}
+<div id="portada">
+    <img src="{% static 'imagenes/urgencias/portada_urgencias.jpg' %}">
+    <h2>Urgencias 24 horas</h2>
+</div>
+<div id="info_urgencias">
+    <div class="row">
+        <div class="col 12">
+            <h4>Urgencias 24 horas Clinica Veterinaria Gran Refugio</h2>
+            <h6>Nuestro profesionales estan a la disposicion de tu mascota las 24 horas en cualquier caso que tu consideres de urgencia,
+                el personal esta capacitado para recibir un paciente y brindarle el mejor servicio a cualquier hora del dia.
+            </h6>
+            <h6 style="color: orange;">Telefono para urgencias: 9 83839238</h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <h3>    
+                Siempre a tu disposicion
+            </h3>
+            <hr class="red">
+            <h5>Cualquier emergencia, no dudes en ponerte
+                en contacto con nosotros o directamente venir,
+                estamos siempre con las puertas abiertas para recibir
+                a tu mascota o cualquier animal que requiera tratamiento,
+                nuestro personal esta comprometido y posee la capacidad
+                y el equipamiento necesario para brindarle el mejor
+                servicio con tal de preservar la salud del animal.
+                <br><br><br>
+                - Abierto los 365 del año<br>
+                - Examenes de urgencias<br>
+                - Veterinarios especializados en urgencias
+            </h5>
+        </div>
+        <div class="col s6">
+            <img src="{% static 'imagenes/urgencias/urgencias_en_accion.jpg' %}">
+        </div>
+    </div>
+</div>
+{% endblock %}

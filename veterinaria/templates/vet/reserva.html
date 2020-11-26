@@ -1,0 +1,92 @@
+{% extends "vet/base.html" %}
+
+{% block title %} Reserva {% endblock %}
+
+{% block css %}
+<style>
+    #img-reserva{
+        position: absolute;
+        height: 150vh;
+        width: 100%;
+    }
+    #contenedor-reserva{
+        z-index: 2;
+        position: relative;
+        height: 140vh;
+    }
+    #contenedor-reserva form{
+        background: rgb(0,0,0,0.1);
+        height: 118vh;
+    }
+    #contenedor-reserva .input-field{
+        color: white;
+        position: relative;
+    }
+    #contenedor-reserva .btn{
+        width: 200px;
+        background: purple;
+    }
+    #contenedor-reserva form input{
+        color: orange;
+    }
+</style>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('select').formSelect();
+    })
+</script>
+{% endblock %}
+
+{% block content %}
+<img id="img-reserva" src="/static/imagenes/img-reserva.jpg">
+<div id="contenedor-reserva" class="container">
+    <h1 style="color: orange;" class="center">Reserva de hora</h1>
+    <div class="row">
+        <form method="POST" class="col s12 center">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s12">
+                    {{form.nombre_animal.label}}
+                    {{form.nombre_animal}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    {{form.especie.label}}
+                    {{form.especie}}
+                </div>
+                <div class="input-field col s6">
+                    {{form.raza.label}}
+                    {{form.raza}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    {{form.servicio.label}}
+                    {{form.servicio}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    {{form.telefono.label}}
+                    {{form.telefono}}
+                </div>
+                <div class="input-field col s6">
+                    {{form.fecha_atencion.label}}
+                    {{form.fecha_atencion}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    {{form.comentario.label}}
+                    {{form.comentario}}
+                </div>
+            </div>
+            <input class="btn wave-effect" type="submit" name="boton" id="idBoton" value="Reservar">
+        </form>
+    </div>
+</div>
+{% endblock %}
