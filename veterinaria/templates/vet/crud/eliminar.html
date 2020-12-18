@@ -1,0 +1,29 @@
+{% extends 'vet/base.html' %}
+
+{% block title %} Eliminar usuario {% endblock %}
+
+{% block css %}
+<style>
+    .container .input-field label{
+        position: relative;
+        color: black;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <form method="POST" class=" col s12 center">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s12">
+                    <label>Rut</label>
+                    <input type="text" name="Rut" required>
+                </div>
+            </div>
+            <input class="btn wave-effect" type="submit" name="boton" id="idBoton" value="Eliminar">
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -4,9 +4,38 @@
 
 {% block css %}
 <style>
-    #panel .row label{
-        color: orange;
+    body{
+        background: #9999CC ;
+    }
+    #panel{
+       height: 60vh;
+    }
+    #panel .row p{
+        color: firebrick;
         font-weight: bold;
+        width: 60%;
+        box-shadow: 0 0 2px 2px white;
+    }
+    #panel .row label{
+        color: white;
+        font-weight: bold;
+        font-family: 'Courier Courier New', Courier, monospace;
+    }
+    #panel .row .col:nth-child(1) h1{
+        font-size: 50px;
+        margin-top: 10px;
+    }
+    #panel .row .col:nth-child(1){
+        height: 100%;
+    }
+    #panel .row .col:nth-child(2){
+        display: flex;
+        flex-direction: column;
+        margin-top: 10vh;
+    }
+    #panel .row .col:nth-child(2) a{
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 </style>
 {% endblock %}
@@ -17,12 +46,36 @@
 {% block content %}
 <div id="panel" class="container">
     <div class="row">
-        <div class="col s12">
+        {% if request.user.tipo == "admin" %}
+        <div class="col s8">
             <h1>Informacion de usuario</h1>
+            <p>Nombre: <label>{{usuario.nombre}}</label></p>
+            <p>Apellido: <label>{{usuario.apellido}}</label></p>
+            <p>Rut: <label>{{usuario.rut}}</label></p>
+            <p>Estado: <label>{{usuario.estado}}</label></p>
         </div>
-    </div>
-    <div class="row">
-        <div class="col s12">
+        <div class="col s4">
+            <a class="btn wave-effect" href="estadisticas">Estadisticas de usuarios</a>
+            <a class="btn wave-effect" href="crud">Crud de usuarios</a>
+            <a class="btn wave-effect" href="cambiar_contraseña">Cambiar contraseña</a>
+        </div> 
+        {% elif request.user.tipo == "funcionario" %}
+        <div class="col s8">
+            <h1>Informacion de usuario</h1>
+            <p>Nombre: <label>{{usuario.nombre}}</label></p>
+            <p>Apellido: <label>{{usuario.apellido}}</label></p>
+            <p>Rut: <label>{{usuario.rut}}</label></p>
+            <p>Estado: <label>{{usuario.estado}}</label></p>
+        </div>
+        <div class="col s4">
+            <a class="btn wave-effect" href="mis_pacientes">Mis pacientes</a>
+            <a class="btn wave-effect" href="citas_pendientes">Citas pendientes</a>
+            <a class="btn wave-effect" href="video_consulta">Video Consulta</a>
+            <a class="btn wave-effect" href="cambiar_contraseña">Cambiar contraseña</a>
+        </div> 
+        {% else %}
+        <div class="col s8">
+            <h1>Informacion de usuario</h1>
             <p>Nombre: <label>{{usuario.nombre}}</label></p>
             <p>Apellido: <label>{{usuario.apellido}}</label></p>
             <p>Rut: <label>{{usuario.rut}}</label></p>
@@ -30,6 +83,12 @@
             <p>Reservas agendadas: <label>{{reservas}}</label></p>
             <p>Proxima visita programada: <label>{{visita}}</label></p>
         </div>
+        <div class="col s4">
+            <a class="btn wave-effect" href="vacunas_pendientes">Vacunas pendientes</a>
+            <a class="btn wave-effect" href="video_consulta">Video consulta</a>
+            <a class="btn wave-effect" href="cambiar_contraseña">Cambiar contraseña</a>
+        </div> 
+        {% endif %}
     </div>
 </div>
 {% endblock %}

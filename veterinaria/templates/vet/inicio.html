@@ -31,11 +31,12 @@
         height: 68vh;
     }
     #servicios .card img{
-        width: 100%;
         height: 30vh;
     }
-    #servicios .card-content{
+    #servicios .card .card-content{
         text-align: justify;
+        word-wrap: break-word;
+        overflow: hidden;
     }
     /*FIN SERVICIOS*/
 
@@ -48,6 +49,25 @@
         width: 80%;
     }
     /*FIN REFUGIO*/
+
+    /*RESONSIVE*/
+    @media (max-width : 992px){
+        #servicios{
+            display: flex;
+            flex-direction: column;
+        }
+        #servicios .row{
+            display: inline-flex;
+            flex-direction: column;
+        }
+        #servicios .card img{
+            height: none;
+        }
+        #servicios .card{
+            width: 100%;
+        }
+    }
+    /*FIN RESPONSIVE*/
 </style>
 {% endblock %}
 
@@ -55,6 +75,24 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('.slider').slider();
+        var anchoBody = $('body').css('width');
+        
+        //Cartas responsivas en la pagina de inicio
+        setTimeout(() => {
+            if(anchoBody.length == 6){
+                anchoBodyNum = parseInt(anchoBody.substr(0,4))
+                if (anchoBodyNum < 1200){
+                    $('#servicios .row div').removeClass('col s4').addClass('col s12')
+                }
+            }
+            else if (anchoBody.length == 5){
+                anchoBodyNum = parseInt(anchoBody.substr(0,3))
+                if (anchoBodyNum < 992){
+                    $('#servicios .row div').removeClass('col s4').addClass('col s12')
+                }
+            }
+        }, 100);
+        //Cartas responsivas en la pagina de inicio
     })
 </script>
 {% endblock %}
@@ -95,7 +133,7 @@
     <div class="row">
         <div class="col s4">
             <div class="card">
-                <div class="card-image">
+                <div class="card-image responsive-img">
                     <img src="{% static 'imagenes/servicios/cirugia.jpg' %}">
                 </div>
                 <div class="card-content">
@@ -256,7 +294,7 @@
             </p>
         </div>
         <div class="col s6">
-            <img src="{% static 'imagenes/grupo_vet.jpg' %}">
+            <img class="responsive-img" src="{% static 'imagenes/grupo_vet.jpg' %}">
         </div>
     </div>
 </div><br><br><br><br><br>

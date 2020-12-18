@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'veterinaria'
+    'veterinaria',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,37 @@ EMAIL_HOST_PASSWORD = 'lololo23.'
 #MODELO DE USUARIO
 
 AUTH_USER_MODEL = 'veterinaria.Usuario'
+
+#SW
+
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'serviceworker.js')
+
+PWA_APP_NAME = 'Gran Refugio'
+PWA_APP_DESCRIPTION = "Gran Refugio PWA"
+PWA_APP_THEME_COLOR = '#000000'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = 'vet/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = 'vet/inicio'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+    {
+        'src': 'static/imagenes/logo_vet.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': 'static/imagenes/logo_vet.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': 'static/imagenes/logo_vet.png',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'

@@ -1,0 +1,11 @@
+{% extends 'vet/base.html' %}
+
+{% block title %} Listado de usuarios {% endblock %}
+
+{% block content %}
+<div style="height: 300px;" class="container center">
+    {% for usuario in usuarios %}
+    {{usuario}}<br>
+    {% endfor %}
+</div>
+{% endblock %}

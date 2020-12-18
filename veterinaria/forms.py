@@ -1,5 +1,5 @@
 from django import forms
-from .models import Usuario, Reserva
+from .models import Usuario, Reserva, Animal
 
 class UserRegisterForm(forms.ModelForm):
     password1 = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
@@ -16,3 +16,13 @@ class RegistroReservaForm(forms.ModelForm):
         widgets = {
         'fecha_atencion': forms.DateInput(format=('%m/%d/%Y'), attrs={'type':'date'}),
         }
+
+class RegistroAnimalForm(forms.ModelForm):
+    opcionesEsterilizado = (
+        (True, 'SI'),
+        (False, 'NO'),
+    )
+    esterilizado = forms.ChoiceField(choices = opcionesEsterilizado)
+    class Meta:
+        model = Animal
+        fields = ['nombre', 'especie', 'raza', 'peso', 'sexo', 'color', 'edad', 'esterilizado']

@@ -1,0 +1,102 @@
+{% extends 'vet/base.html' %}
+
+{% block title %} Modificar usuario {% endblock %}
+
+{% block css %}
+<style>
+    .container .input-field label{
+        position: relative;
+        color: black;
+    }
+</style>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('select').formSelect();
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <form action="modificar" method="POST" class=" col s12 center">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s6">
+                    <label>Nombre completo</label>
+                    <input value="{{usuario.nombre}}" type="text" name="nombre" required>
+                </div>
+                <div class="input-field col s6">
+                    <label>Apellido</label>
+                    <input value="{{usuario.apellido}}" type="text" name="apellido" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label>Rut</label>
+                    <input value="{{usuario.rut}}" type="text" name="rut" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label>Correo electronico</label>
+                    <input value="{{usuario.email}}" type="email" name="email" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <label>Contraseña</label>
+                    <input type="password" name="pass1" required>
+                </div>
+                <div class="input-field col s6">
+                    <label>Confirma  contraseña</label>
+                    <input type="password" name="pass2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label>Tipo de usuario</label>
+                    <select name="tipo_usuario">
+                        {% if usuario.is_superuser == True %}
+                        <option value="" disabled>Selecciona un tipo de usuario</option>
+                        <option value="admin" selected>Administrador</option>
+                        <option value="cliente">Cliente</option>
+                        {% else %}
+                        <option value="" disabled>Selecciona un tipo de usuario</option>
+                        <option value="admin">Administrador</option>
+                        <option value="cliente" selected>Cliente</option>
+                        {% endif %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label>Estado</label>
+                    <select name="estado">
+                        {% if usuario.estado == 'DISPONIBLE' %}
+                        <option value="" disabled>Selecciona un estado</option>
+                        <option value="DISPONIBLE" selected>Disponible</option>
+                        <option value="NO DISPONIBLE">No disponible</option>
+                        {% else %}
+                        <option value="" disabled>Selecciona un estado</option>
+                        <option value="DISPONIBLE">Disponible</option>
+                        <option value="NO DISPONIBLE" selected>No disponible</option>
+                        {% endif %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label>Credito</label>
+                    <input value="{{usuario.credito}}" type="number" name="credito">
+                </div>
+            </div>
+            <input type="hidden" name="idUsuario" value="{{usuario.id}}">
+            <input class="btn wave-effect" type="submit" name="boton" id="idBoton" value="Modificar">
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'vet/base.html' %}
+
+{% block title %} Crud de usuarios {% endblock %}
+
+{% block css %}
+<style>
+    #crud .row .col{
+        display: flex;
+        flex-direction: column;
+    }
+    #crud .row .col a{
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block js %}
+{% endblock %}
+
+{% block content %}
+<div id="crud" class="container">
+   <div class="row">
+       <div class="col s12">
+            <h2 class="center">CRUD DE USUARIOS</h2>
+            <a class="btn wave-effect" href="agregar">AGREGAR</a> 
+            <a class="btn wave-effect" href="buscar">MODIFICAR</a> 
+            <a class="btn wave-effect" href="eliminar">ELIMINAR</a> 
+            <a class="btn wave-effect" href="listar">LISTAR</a> 
+       </div> 
+   </div> 
+</div>
+{% endblock %}

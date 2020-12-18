@@ -1,4 +1,6 @@
 {% load static %}
+{% load pwa %}
+{% progressive_web_app_meta %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +18,7 @@
 </head>
 <body>
     <nav>
-        <div class="nav-wrapper blue">
+        <div class="nav-wrapper">
             <div class="container">
                 <div class="row">
                     {% if request.user.is_authenticated %}
@@ -92,16 +94,16 @@
     {% if messages %}
     {% for message in messages %}
     <div id="mensaje" style="z-index: 5; position: absolute; background-color: green; width: 100%;">
-        <h2 style="margin: 0; color: white;" class="center">
+        <h4 style="margin: 0; color: white;" class="center">
             {{message}}
-        </h2>
+        </h4>
     </div>
     {% endfor %}
     {% endif %}
 
     {% block content %}
     {% endblock %} 
-    <footer class="page-footer blue">
+    <footer class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col s6">

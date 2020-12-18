@@ -1,0 +1,72 @@
+{% extends 'vet/base.html' %}
+
+{% block title %} Vacunas pendientes {% endblock %}
+
+{% block css %}
+<style>
+    body{
+        background: purple
+    }
+    #panelVideoConsultas{
+        height: 120vh;
+        width: 100%;
+    }
+    #panelVideoConsultas .row .col:nth-child(1) h4{
+        color: White;
+        font-family:'Courier New', Courier, monospace;
+
+    }
+    #panelVideoConsultas .row .col:nth-child(1) a{
+        margin-top: 30px;
+    }
+    #panelVideoConsultas .row .col:nth-child(2){
+        display: flex;
+        flex-direction: column;
+    }
+    #panelVideoConsultas .row .col:nth-child(2) div{
+        width: 60vh;
+        height: 40vh;
+        background: gray;
+        box-shadow: 0 0 3px 3px black;  
+        margin-top: 20px;
+        margin-left: 30vh;
+    }
+    #panelVideoConsultas .row .videoFuncionario div{
+        background: gray;
+        box-shadow: 0 0 3px 3px black;
+        width: 70vh;
+        height: 50vh;
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block js %}
+{% endblock %}
+
+{% block content %}
+<div id="panelVideoConsultas" class="container">
+    <div class="row">
+        {% if request.user.tipo == 'cliente' %}
+        <div class="col s4">
+            <h4>Funcionarios disponibles</h4>
+            <a href="#"><h5>Tomas Gonzalez (Medicina General)</h5></a>
+            <a href="#"><h5>Oscar Parada (Fisioterapia)</h5></a>
+            <a href="#"><h5>Camilo Acuña (Cirujia)</h5></a>
+            <a class="btn" href="#">Enviar solicitud</a>
+        </div>
+        <div class="col s8">
+            <div></div>
+            <div></div>
+        </div>
+        {% elif request.user.tipo == 'funcionario' %}
+        <div class="col s12 videoFuncionario center">
+            <div></div>
+            <div></div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

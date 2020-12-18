@@ -1,0 +1,34 @@
+{% extends 'vet/base.html' %}
+
+{% block title %} Vacunas pendientes {% endblock %}
+
+{% block css %}
+<style>
+    body{
+        background: purple
+    }
+    #panelVacunas{
+        height: 100vh;
+    }
+    #panelVacunas .row .col h5{
+        color: White;
+        font-family:'Courier New', Courier, monospace;
+
+    }
+</style>
+{% endblock %}
+
+{% block js %}
+{% endblock %}
+
+{% block content %}
+<div id="panelVacunas" class="container">
+    <div class="row">
+        <div class="col s12 center">
+            <h5>
+                (0) No hay registro de vacunas programadas.
+            </h5>
+        </div>
+    </div>
+</div>
+{% endblock %}
